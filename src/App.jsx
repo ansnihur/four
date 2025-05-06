@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import OrderForm from './components/OrderForm';
+import React from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import About from './components/About';
+import Services from './components/Services';
+import Cart from './components/Cart';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import './App.scss';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [cartItems, setCartItems] = React.useState([]);
+  const [showForm, setShowForm] = React.useState(false);
+
+  const handleAdd = (service) => setCartItems((prev) => [...prev, service]);
+  const handleRemove = (index) => setCartItems((prev) => prev.filter((_, i) => i !== index));
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <Header />
+      <Hero />
+      <About />
+      <Services onAdd={handleAdd} />
+      <Cart
+        cartItems={cartItems}
+        onRemove={handleRemove}
+        onCheckout={() => setShowForm(true)}
+      />
+      <OrderForm visible={showForm} onClose={() => setShowForm(false)} />
+      <Contact />
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;

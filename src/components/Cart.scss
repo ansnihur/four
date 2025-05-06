@@ -1,0 +1,57 @@
+.cart {
+    padding: 4rem 2rem;
+    background-color: #f5f7fa;
+    text-align: center;
+  
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #1e1e2f;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+  
+      li {
+        margin: 0.5rem 0;
+        font-size: 1.1rem;
+  
+        button {
+          margin-left: 1rem;
+          background-color: #e57373;
+          border: none;
+          padding: 0.3rem 0.8rem;
+          color: white;
+          border-radius: 5px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: #ef5350;
+          }
+        }
+      }
+    }
+  
+    .cart__total {
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  
+    .cart__submit {
+      background-color: #4caf50;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #388e3c;
+      }
+    }
+  }
+  
